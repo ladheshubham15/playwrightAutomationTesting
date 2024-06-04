@@ -58,7 +58,7 @@ test.describe('Wikipedia E2E Tests', () => {
 
   test('Verify that external links within Wikipedia articles are valid', async ({ page }) => {
     const wikipediaPage = new WikipediaPage(page);
-    await wikipediaPage.navigateTo('/wiki/Agile_testing');
+    await wikipediaPage.navigateTo('/wiki/Metadata');
     await verifyExternalLinks(page, LOCATORS.externalLinksLocator);
   });
 
