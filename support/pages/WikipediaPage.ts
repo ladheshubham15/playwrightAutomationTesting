@@ -1,6 +1,6 @@
 import { BasePage } from './BasePage';
 import { LOCATORS } from '../locators';
-import { expect } from '@playwright/test';
+import { Locator, expect } from '@playwright/test';
 
 export class WikipediaPage extends BasePage {
   //searching the term on wikipedia page
@@ -14,11 +14,15 @@ export class WikipediaPage extends BasePage {
     return this.page.textContent(LOCATORS.firstHeading);
   }
 
+  async verifyElementsToVisible(locator:string ) {
+    expect(this.page.locator(locator)).toBeVisible();
+  }
+
   //verifying content,refrences, external link section visible for wikipedia page
   async verifyWikipediaPageLoadedCorrectly() {
-    expect(this.page.locator(LOCATORS.contentSectionLocator)).toBeVisible();
-    expect(this.page.locator(LOCATORS.referencesSectionLocator)).toBeVisible();
-    expect(this.page.locator(LOCATORS.externalLinksSectionLocator)).toBeVisible();
+    this.verifyElementsToVisible(LOCATORS.contentSectionLocator);
+    this.verifyElementsToVisible(LOCATORS.referencesSectionLocator);
+    this.verifyElementsToVisible(LOCATORS.externalLinksSectionLocator);
   }
 
   async verifyNavigationUrl(url: RegExp | string){

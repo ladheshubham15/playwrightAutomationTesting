@@ -12,6 +12,10 @@ export const LOCATORS = {
     contentSectionLocator: '#mw-content-text',
     referencesSectionLocator: '#References',
     externalLinksSectionLocator: '#External_links',
-
-  };
-  
+    sideBarContentLocator: '#vector-toc-pinned-container',
+    mainMenuLocator: '#p-navigation',
+    footerLocator: '#footer',
+    loginLinkLocator: '#pt-login-2',
+    testTypeLocator: 'a[href="#Testing_types"]',
+    headerTestTypeTextLocator: 'h2:has-text("Testing types")',
+};
